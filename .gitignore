@@ -172,3 +172,20 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Numpy 파일 무시
+*.npy
+
+# 이미지 파일 무시
+*.jpg
+*.jpeg
+*.png
+
+# 저장된 NPY 디렉터리 무시
+saved_np/
+
+# OS, 캐시 무시
+__pycache__/
+*.py[cod]
+.DS_Store
+
