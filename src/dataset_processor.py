@@ -67,7 +67,40 @@ class EmotionDatasetProcessor:
                 gc.collect()
 
     def merge_chunks_and_save(self):
-        pass
+        target_files = [
+            'X_train_img.npy', 'X_val_img.npy',
+            'X_train_lm.npy', 'X_val_lm.npy',
+            'y_train.npy', 'y_val.npy'
+        ]
+        # 이미 병합된 데이터가 있으면 스킵
+        if all(os.path.exists(os.path.join(self.saved_np_dir, f)) for f in target_files):
+            print("최종 NPY 파일이 이미 존재하여 병합을 건너뜁니다.")
+            return
+
+        # 청크 파일 목록 불러오기
+        img_chunks = sorted([f for f in os.listdir(self.saved_np_dir) if f.startswith('img_chunk_')])
+        lm_chunks = sorted([f for f in os.listdir(self.saved_np_dir) if f.startswith('lm_chunk_')])
+        label_chunks = sorted([f for f in os.listdir(self.saved_np_dir) if f.startswith('label_chunk_')])
+
+        # NPY 파일 불러와 병합
+        X_img = np.concatenate([np.load(os.path.join(self.saved_np_dir, f)) for f in img_chunks], axis=0)
+        X_lm  = np.concatenate([np.load(os.path.join(self.saved_np_dir, f)) for f in lm_chunks], axis=0)
+        y     = np.concatenate([np.load(os.path.join(self.saved_np_dir, f)) for f in label_chunks], axis=0)
+
+        # 훈련/검증 데이터 분할
+        X_train_img, X_val_img, X_train_lm, X_val_lm, y_train, y_val = train_test_split(
+            X_img, X_lm, y, test_size=0.2, stratify=y.argmax(axis=1), random_state=42
+        )
+
+        # 병합된 결과 저장
+        np.save(os.path.join(self.saved_np_dir, 'X_train_img.npy'), X_train_img)
+        np.save(os.path.join(self.saved_np_dir, 'X_val_img.npy'), X_val_img)
+        np.save(os.path.join(self.saved_np_dir, 'X_train_lm.npy'), X_train_lm)
+        np.save(os.path.join(self.saved_np_dir, 'X_val_lm.npy'), X_val_lm)
+        np.save(os.path.join(self.saved_np_dir, 'y_train.npy'), y_train)
+        np.save(os.path.join(self.saved_np_dir, 'y_val.npy'), y_val)
+
+        print("청크를 병합하여 최종 데이터셋을 저장했습니다.")
 
 if __name__ == "__main__":
     processor = EmotionDatasetProcessor(dataset_dir="data", saved_np_dir="saved_np")
