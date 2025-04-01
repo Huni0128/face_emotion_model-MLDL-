@@ -181,9 +181,6 @@ cython_debug/
 *.jpeg
 *.png
 
-# 저장된 NPY 디렉터리 무시
-saved_np/
-
 # OS, 캐시 무시
 __pycache__/
 *.py[cod]
