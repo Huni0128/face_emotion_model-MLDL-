@@ -23,6 +23,8 @@ DeepFace 라이브러리를 사용해 얼굴 임베딩을 추출하고 scikit-le
 
 사용된 데이터는 [AI허브](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=82)에서 제공한 자료를 기반으로 합니다.
 
+---
+
 ## 파일 및 디렉토리 구조
 ```bash
 face_emotion_model-MLDL-/
