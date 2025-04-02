@@ -21,8 +21,12 @@ face_emotion_model-MLDL-/
 ├── MLPClassifier/
 │   └── results/
 │       └── mlp_model.pkl
+├── images/
+├── train_src/
 ├── view/
 │   └── webcam_view.py
+├── .gitignore
 ├── main.py
 └── README.md
+
 ```
