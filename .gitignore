@@ -186,3 +186,7 @@ __pycache__/
 *.py[cod]
 .DS_Store
 
+
+images/*
+!images/classification_report_bar.png
+!images/confusion_matrix.png
