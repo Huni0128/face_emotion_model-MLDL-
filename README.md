@@ -21,8 +21,6 @@ face_emotion_model-MLDL-/
 ├── MLPClassifier/
 │   └── results/
 │       └── mlp_model.pkl
-├── models/
-│   └── model.h5
 ├── view/
 │   └── webcam_view.py
 ├── main.py
