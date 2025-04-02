@@ -1,0 +1,6 @@
+opencv-python
+numpy
+joblib
+deepface
+Pillow
+scikit-learn
