@@ -81,3 +81,36 @@ face_emotion_model-MLDL-/
 3. **MediaPipe 사용 시 시스템 오류**  
    - **문제점:** MediaPipe를 활용한 얼굴 검출 기능을 도입하려고 시도했으나, 시스템에서 'kill' 오류가 발생하여 프로세스가 중단되는 문제가 있었습니다.  
    - **해결:** 해당 오류 원인을 분석한 결과, 리소스 사용량 및 시스템 환경 문제로 판단되어, 보다 안정적인 얼굴 검출 및 임베딩 추출 방법을 모색하게 되었습니다.
+
+---
+
+## 설치 및 실행 방법
+
+1. **리포지토리 클론**
+   
+  ```bash
+   git clone https://github.com/Huni0128/face_emotion_model-MLDL-.git
+   cd face_emotion_model-MLDL-
+   ```
+2. **가상환경 생성 및 활성화**
+
+   - **Linux/Mac**
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+   - **Windows**
+     ```bash
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+3. **필수 패키지 설치**
+  프로젝트에 필요한 라이브러리는 requirements.txt 파일에 정리되어 있습니다.
+  ```bash
+  pip install -r requirements.txt
+  ```
+4. **모델 준비**
+  - 학습된 MLPClassifier 모델 파일은 `MLPClassifier/results/mlp_model.pkl` 경로에 위치해야 합니다.
+  - 만약 학습이 필요하다면 `train_src/`폴더 내의 코드를 참고하여 모델을 재학습 후 해당경로에 모델 파일을 저장하세요.
+
+
