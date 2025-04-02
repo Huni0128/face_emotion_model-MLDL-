@@ -112,5 +112,12 @@ face_emotion_model-MLDL-/
 4. **모델 준비**
   - 학습된 MLPClassifier 모델 파일은 `MLPClassifier/results/mlp_model.pkl` 경로에 위치해야 합니다.
   - 만약 학습이 필요하다면 `train_src/`폴더 내의 코드를 참고하여 모델을 재학습 후 해당경로에 모델 파일을 저장하세요.
+5. **프로젝트 실행**
+  - 웹캠을 통한 실시간 감정 인식을 실행하려면 repository root에서 아래 명령어를 실행하세요.
+  ```bash
+  python main.py
+  ```
+  웹캠 창이 열리고 실시간 감정 인식 결과가 화면에 오버레이됩니다.
+  **종료방법:** 웹캠 창에서 `q`키를 눌러 종료할 수 있습니다.
 
 
