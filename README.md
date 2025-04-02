@@ -44,3 +44,27 @@ face_emotion_model-MLDL-/
 | **Version Control**    | [![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white)](https://git-scm.com/) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white)](https://github.com/)                                                                                       |
                                       |
 
+---
+
+## 성능 결과
+
+- **모델 구조**: DeepFace(ArcFace) 임베딩 + MLPClassifier (2 hidden layers: 128 → 64)
+- **입력 데이터**: 표정 이미지 → DeepFace 임베딩 (벡터화)
+- **클래스 구성**: angry, happy, neutral, sad (총 4개)
+- **데이터 분할**: 학습 80% / 테스트 20% (Stratified 방식)
+
+- **평가 지표**:
+  - 전반적인 **Accuracy**: 약 **89~92% 수준**
+  - 클래스별 Precision / Recall / F1-score:
+
+    <img src="./images/classification_report_bar.png" alt="Classification Report" width="600"/>
+
+  - Confusion Matrix:
+
+    <img src="./images/confusion_matrix.png" alt="Confusion Matrix" width="600"/>
+
+  - 대용량 이미지 배치 처리 + 중간 저장 기능 탑재 (`.npy` 저장으로 중단 복구 가능)
+  - 학습 모델 및 결과:
+    - `./results/mlp_model.pkl`: 학습 완료된 모델 파일
+      
+---
