@@ -16,6 +16,7 @@ DeepFace 라이브러리를 사용해 얼굴 임베딩을 추출하고 scikit-le
   - 한글 감정 라벨(예: "짜증", "행복", "무표정", "슬픔") 표시 및 안정화 처리
 
 ## 파일 및 디렉토리 구조
+```bash
 face_emotion_model-MLDL-/
 ├── MLPClassifier/
 │   └── results/
@@ -26,4 +27,4 @@ face_emotion_model-MLDL-/
 │   └── webcam_view.py
 ├── main.py
 └── README.md
-
+```
